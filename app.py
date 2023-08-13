@@ -3,11 +3,11 @@ import mysql.connector
 
 L = instaloader.Instaloader()
 
-target_profile = 'instagram'  # Replace with the desired profile
+target_profile = 'instagram'  
 profile = instaloader.Profile.from_username(L.context, target_profile)
 posts_data = []
 
-#  profile's posts and collect data
+
 for post in profile.get_posts():
     post_data = {
         'shortcode': post.shortcode,
@@ -21,7 +21,7 @@ for post in profile.get_posts():
     if len(posts_data) >= 10:
         break
 
-# Store data in a MySQL database
+# Store MySQL database
 conn = mysql.connector.connect(
     host="localhost",
     user="root",
